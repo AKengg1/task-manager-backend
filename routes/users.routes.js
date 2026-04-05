@@ -17,7 +17,7 @@ router.get("/:id/tasks", (req, res) => {
   const user = users.find((e) => e.id === Number(req.params.id));
   if (!user) return res.status(404).json({ error: "User not found" });
   const userTasks = tasks.filter((e) => e.userId === Number(req.params.id));
-  req.json(userTasks);
+  res.json(userTasks);
 });
 
 router.post("/", (req, res) => {
